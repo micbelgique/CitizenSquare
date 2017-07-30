@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th><abbr title="ID">ID</abbr></th>
+    <th><abbr title="Lieu">Lieu</abbr></th>
+    <th><abbr title="Point">Point</abbr></th>
+    <th><abbr title="Date">Date</abbr></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let scan of scans">
+    <td>{{scan.id}}</td>
+    <td>
+      {{scan.place.name}}
+    </td>
+    <td>{{scan.value}}</td>
+    <td>{{scan.createdAt|date:'dd/MM/yyyy HH:mm:ss'}}</td>
+  </tr>
+  </tbody>
+</table>

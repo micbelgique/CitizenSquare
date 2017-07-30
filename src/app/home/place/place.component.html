@@ -1,0 +1,15 @@
+<ngui-map
+  class="is-full"
+  zoom="14"
+  center="50.45, 3.95"
+  mapTypeId="ROADMAP">
+  <marker *ngFor="let place of places; let i=index"
+          (setLabel)="place.name"
+          [position]="{lat:place.lat, lng:place.lon}"
+          (click)="clicked($event, i)"></marker>
+  <info-window id="iw">
+    <div *ngIf="marker.display">
+      {{ marker.name }}
+    </div>
+  </info-window>
+</ngui-map>

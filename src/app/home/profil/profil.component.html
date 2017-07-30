@@ -1,0 +1,76 @@
+<form [formGroup]="f">
+  <div class="field">
+    <label class="label">Age</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input "
+             [class.is-success]="!f.get('age').hasError('required')"
+             [class.is-danger]="f.get('age').hasError('required')"
+             type="number"
+             placeholder=""
+             value=""
+             formControlName="age">
+      <span class="icon is-small is-right">
+        <i class="fa fa-check"></i>
+      </span>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Gender</label>
+    <div class="control">
+      <div class="select">
+        <select formControlName="gender"
+                [class.is-success]="!f.get('gender').hasError('required')"
+                [class.is-danger]="f.get('gender').hasError('required')">
+          <option>Selectionnez</option>
+          <option value="Man">Man</option>
+          <option value="FEMALE">Female</option>
+          <option value="NEUTRAL">Neutral</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Postal code</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input "
+             [class.is-success]="!f.get('postalCode').hasError('required')"
+             [class.is-danger]="f.get('postalCode').hasError('required')"
+             type="number"
+             placeholder=""
+             value=""
+             formControlName="postalCode">
+      <span class="icon is-small is-right">
+        <i class="fa fa-check"></i>
+      </span>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Interest </label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input "
+             [class.is-success]="!f.get('interest').hasError('required')"
+             [class.is-danger]="f.get('interest').hasError('required')"
+             type="text"
+             placeholder=""
+             value=""
+             formControlName="interest">
+      <span class="icon is-small is-right">
+        <i class="fa fa-check"></i>
+      </span>
+    </div>
+  </div>
+
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary"
+              [disabled]="f.invalid"
+              (click)="update(f.getRawValue())">Update
+      </button>
+    </div>
+    <div class="control">
+      <button class="button is-link">Reset</button>
+    </div>
+  </div>
+</form>
+

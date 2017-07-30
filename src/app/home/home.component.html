@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="section">
+    <div class="status-header">
+      <div class="indicator"></div>
+      <div class="title">Total Points : {{ total}}</div>
+      <!--<div class="subtitle">As of August 1, 2016 at 11:08PM MST.</div>-->
+    </div>
+    <div class="status-uptime">
+      <div class="tabs">
+        <ul>
+          <li routerLinkActive="is-active"><a [routerLink]="['./card']">Card</a></li>
+          <li routerLinkActive="is-active"><a [routerLink]="['./historique']">Historique</a></li>
+          <li routerLinkActive="is-active"><a [routerLink]="['./profil']">Profil</a></li>
+          <li routerLinkActive="is-active"><a [routerLink]="['./place']">Place</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="status-list">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
