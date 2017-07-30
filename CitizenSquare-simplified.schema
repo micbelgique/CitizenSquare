@@ -1,0 +1,58 @@
+﻿type Card implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  scans: [Scan!]! @relation(name: "CardOnScan")
+  serial: String! @isUnique
+  updatedAt: DateTime!
+  user: User @relation(name: "UserOnCard")
+}
+
+type File implements Node {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+type Place implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  isShop: Boolean!
+  lat: Float
+  lon: Float
+  name: String!
+  scans: [Scan!]! @relation(name: "PlaceOnScan")
+  updatedAt: DateTime!
+}
+
+type Scan implements Node {
+  card: Card @relation(name: "CardOnScan")
+  createdAt: DateTime!
+  id: ID! @isUnique
+  place: Place @relation(name: "PlaceOnScan")
+  updatedAt: DateTime!
+  value: Float!
+}
+
+type User implements Node {
+  card: Card @relation(name: "UserOnCard")
+  createdAt: DateTime!
+  email: String @isUnique
+  id: ID! @isUnique
+  password: String
+  updatedAt: DateTime!
+  age: Int @defaultValue(value: 0)
+  gender: Gender
+  interest: String
+  postalCode: Int
+}
+
+enum Gender {
+  Man
+  FEMALE
+  NEUTRAL
+}
